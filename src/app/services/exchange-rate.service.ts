@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { RatesData } from '../models/rates-data.model';
 import { map } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ExchangeRateService {
   rates: {
     currencyCode: string;

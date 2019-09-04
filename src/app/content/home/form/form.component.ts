@@ -3,12 +3,12 @@ import { ExchangeRateService } from '../../../services/exchange-rate.service';
 import { TableRow } from '../../../models/table-row.model';
 import { Rates } from '../../../models/rates.model';
 import { FormGroup } from '@angular/forms';
+import { TableRowInsertionService } from '../../../services/table-row-insertion.service';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css'],
-  providers: [ExchangeRateService]
+  styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
   form: FormGroup;
@@ -16,9 +16,11 @@ export class FormComponent implements OnInit {
   amount: number = null;
   select: string = null;
   convertedAmount: number;
-  @ViewChild('amountControl', { static: false }) amountControl: ElementRef;
 
-  constructor(private exchangeRateService: ExchangeRateService) {}
+  constructor(
+    private exchangeRateService: ExchangeRateService,
+    public tableRowInsertionService: TableRowInsertionService
+  ) {}
 
   makeSpacesInNumber(num: number): string {
     if (this.amount !== null) {
@@ -42,21 +44,33 @@ export class FormComponent implements OnInit {
   }
 
   onInsertIntoTable() {
-    const tableRow: TableRow = {
-      amount: this.amount.toString() + 'this.getCurrency()',
-      amountInUsd: this.convertedAmount.toString() + ' USD'
+    let tableRow: TableRow;
+    if (this.convertedAmount) {
+    tableRow = {
+      amount: this.makeSpacesInNumber(this.amount) + ' ' + this.select,
+      amountInUsd: this.convertedAmount.toString()
     };
+    console.log(tableRow);
+    this.tableRowInsertionService.addTableRow(tableRow);
+    }
   }
 
-  getCurrency() {
+  getCurrencyAmount() {
     return this.rates ? this.rates[this.select] : '';
   }
+
+  // getCurrencyCode() {
+  //   if (this.rates) {
+  //     const codes = Object.keys(this.rates);
+  //     const code =
+  //   }
+  // }
 
   ngOnInit() {
     this.exchangeRateService.getRates().subscribe(
       rates => {
         this.rates = rates;
-        console.log(this.amountControl);
+        console.log('Rate', this.convertedAmount);
       },
       error => console.log(error),
       () => console.log('getRates() completed!')

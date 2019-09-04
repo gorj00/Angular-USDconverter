@@ -19,7 +19,7 @@
         <th mat-header-cell *matHeaderCellDef> Entered Amount Converted to USD </th>
         <td mat-cell *matCellDef="let row"> {{ row.amountInUsd }} </td>
         <td mat-footer-cell *matFooterCellDef>
-            <span class="mat-body-strong">600 USD</span>
+            <span class="mat-body-strong">{{ tableTotal }} USD</span>
         </td>
       </ng-container>
 
