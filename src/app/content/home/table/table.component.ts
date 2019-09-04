@@ -27,13 +27,15 @@ export class TableComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    // Update table after submitting a new row
     this.tableRowsSubscription = this.tableRowInsertionService
       .getTableUpdateListener()
       .subscribe((tableRows: TableRow[]) => {
         this.tableData = tableRows;
-        console.log(this.tableData);
+        // console.log(this.tableData);
       });
 
+    // Update total amount after submitting a new row
     this.tableTotalSubscription = this.tableRowInsertionService
       .getTableTotalUpdateListener()
       .subscribe((tableTotal: number) => {
@@ -45,6 +47,7 @@ export class TableComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    // Preventing memory leaks
     this.tableRowsSubscription.unsubscribe();
     this.tableTotalSubscription.unsubscribe();
   }

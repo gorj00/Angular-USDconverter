@@ -19,7 +19,7 @@ export class FormComponent implements OnInit {
 
   constructor(
     private exchangeRateService: ExchangeRateService,
-    public tableRowInsertionService: TableRowInsertionService
+    private tableRowInsertionService: TableRowInsertionService
   ) {}
 
   makeSpacesInNumber(num: number): string {
@@ -34,10 +34,12 @@ export class FormComponent implements OnInit {
 
   showConvertedAmount(): string {
     if (this.amount !== null && this.select !== null) {
-      const currencyInDollar = this.rates[this.select];
-      const convertedAmount = this.amount / currencyInDollar;
-      const editedConvertedAmount = +convertedAmount.toFixed(2);
+      const currencyPerDollar: number = this.rates[this.select];
+      const convertedAmount: number = this.amount / currencyPerDollar;
+      const editedConvertedAmount: number = +convertedAmount.toFixed(2);
+
       this.convertedAmount = editedConvertedAmount;
+
       return '$ ' + this.makeSpacesInNumber(editedConvertedAmount);
     } else {
       return '...';
@@ -51,12 +53,14 @@ export class FormComponent implements OnInit {
 
     const enteredAmountSelCode =
       this.makeSpacesInNumber(this.amount) + ' ' + this.select;
-    const convertedAmountUSDCode = this.makeSpacesInNumber(this.convertedAmount) + ' USD';
+    const convertedAmountUSDCode =
+      this.makeSpacesInNumber(this.convertedAmount) + ' USD';
 
     tableRow = {
       amount: enteredAmountSelCode,
       amountInUsd: convertedAmountUSDCode
     };
+    // Test
     // console.log(tableRow);
     // console.log(this.tableRowInsertionService.tableTotal);
     this.tableRowInsertionService.addTableRow(tableRow);
@@ -68,6 +72,7 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Fetch exchange rates
     this.exchangeRateService.getRates().subscribe(
       (rates: Rates) => {
         this.rates = rates;

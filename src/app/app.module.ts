@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -11,7 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatDividerModule } from '@angular/material/divider';
-
+import { MatListModule } from '@angular/material/list';
 
 import { AppComponent } from './app.component';
 import { FormComponent } from './content/home/form/form.component';
@@ -49,6 +50,7 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatTableModule,
     MatDividerModule,
+    MatListModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
