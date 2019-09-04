@@ -32,7 +32,6 @@ export class TableComponent implements OnInit, OnDestroy {
       .getTableUpdateListener()
       .subscribe((tableRows: TableRow[]) => {
         this.tableData = tableRows;
-        // console.log(this.tableData);
       });
 
     // Update total amount after submitting a new row

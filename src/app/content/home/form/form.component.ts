@@ -49,21 +49,24 @@ export class FormComponent implements OnInit {
   onInsertIntoTable(): void {
     let tableRow: TableRow;
 
+    // Increment total sum of the table
     this.tableRowInsertionService.tableTotal += this.convertedAmount;
 
+    // Set entered amount (CZK | EUR | GBP) and converted amount (USD)
     const enteredAmountSelCode =
       this.makeSpacesInNumber(this.amount) + ' ' + this.select;
     const convertedAmountUSDCode =
       this.makeSpacesInNumber(this.convertedAmount) + ' USD';
 
+    // Store amounts above into a new table row object
     tableRow = {
       amount: enteredAmountSelCode,
       amountInUsd: convertedAmountUSDCode
     };
-    // Test
-    // console.log(tableRow);
-    // console.log(this.tableRowInsertionService.tableTotal);
+
+    // Insert new row to the table
     this.tableRowInsertionService.addTableRow(tableRow);
+    // Update total sum in template
     this.tableRowInsertionService.incrementTableTotal(this.convertedAmount);
   }
 

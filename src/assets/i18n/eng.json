@@ -1,6 +1,39 @@
 {
-  "home": {
+  "header": {
+    "site-title": "Exhange Rate Converter",
+    "navlink-home": "Home",
+    "navlink-info": "Information"
+  },
+  "form": {
     "title": "USD Converter App",
-    "subtitle": "Angular Framework App"
+    "subtitle": "Angular Framework App",
+    "input-number": "Amount to convert",
+    "input-error": " Please, enter required amount to be converted to USD.",
+    "select-currency": "Choose currency",
+    "select-error": "Please, select the currency.",
+    "hint": "converted to",
+    "submit": "Insert amount into table"
+  },
+  "table": {
+    "entered": "Entered Amount",
+    "converted": "Entered Amount Converted to USD",
+    "total": "Total"
+  },
+  "information": {
+    "title": "Information About the App",
+    "title-tech": "Technologies Used",
+    "title-tools": "Methods & Tools",
+    "tech-items": [
+      { "text": "Angular" },
+      { "text": "Angular Material — styling and UI components" },
+      { "text": "Exchange rates API — exchange rates from" },
+      { "text": "ngx-translate — switching between English and Czech" }
+    ],
+    "tools-items": [
+      { "text": "Dependency injection"},
+      { "text": "RxJS"},
+      { "text": "Forms — Template driven approach"},
+      { "text": "HttpClient for an external REST API"}
+    ]
   }
 }

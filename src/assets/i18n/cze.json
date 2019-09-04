@@ -1,6 +1,39 @@
 {
-  "home": {
+  "header": {
+    "site-title": "Převod měnových kurzů",
+    "navlink-home": "Domů",
+    "navlink-info": "Informace"
+  },
+  "form": {
     "title": "Konverze na US dolary",
-    "subtitle": "Angular Framework Aplikace"
+    "subtitle": "Angular Framework Aplikace",
+    "input-number": "Částka k převodu",
+    "input-error": "Prosím, vložte částku k převodu na USD.",
+    "select-currency": "Vyberte měnu",
+    "select-error": "Prosím, vyberte měnu",
+    "hint": "převedeno na",
+    "submit": "Vložit částku do tabulky"
+  },
+  "table": {
+    "entered": "Vložená částka",
+    "converted": "Vložená částka převedena na USD",
+    "total": "Suma"
+  },
+  "information": {
+    "title": "Informace o aplikaci",
+    "title-tech": "Užité technologie",
+    "title-tools": "Přístupy a nástroje",
+    "tech-items": [
+      { "text": "Angular" },
+      { "text": "Angular Material — stylování a UI komponenty" },
+      { "text": "Exchange rates API — měnové kurzy z" },
+      { "text": "ngx-translate — přepínání mezi angličtinou a češtinou" }
+    ],
+    "tools-items": [
+      { "text": "Dependency injection"},
+      { "text": "RxJS"},
+      { "text": "Formuláře — Template driven přístup"},
+      { "text": "HttpClient pro externí REST API"}
+    ]
   }
 }
