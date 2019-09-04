@@ -2,9 +2,9 @@
   <form
     class="pad" (ngSubmit)="onInsertIntoTable()"
     #form="ngForm">
-      <h1 class="mat-display-2">USD Converter App</h1>
+      <h1 class="mat-display-2">{{ 'home.title' | translate }}</h1>
       <h2 class="mat-headline">
-        Angular Framework App
+        {{ 'home.subtitle' | translate }}
       </h2>
       <mat-form-field>
         <input
