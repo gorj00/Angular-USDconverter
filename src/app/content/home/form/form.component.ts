@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ExchangeRateService } from '../../../services/exchange-rate.service';
+import { TableRowInsertionService } from '../../../services/table-row-insertion.service';
 import { TableRow } from '../../../models/table-row.model';
 import { Rates } from '../../../models/rates.model';
 import { FormGroup } from '@angular/forms';
-import { TableRowInsertionService } from '../../../services/table-row-insertion.service';
 
 @Component({
   selector: 'app-form',
@@ -22,6 +22,7 @@ export class FormComponent implements OnInit {
     private tableRowInsertionService: TableRowInsertionService
   ) {}
 
+  // Makes 3 215 211 from 3215211
   makeSpacesInNumber(num: number): string {
     if (this.amount !== null) {
       const parts = num.toString().split('.');
@@ -66,12 +67,8 @@ export class FormComponent implements OnInit {
 
     // Insert new row to the table
     this.tableRowInsertionService.addTableRow(tableRow);
-    // Update total sum in template
+    // Inform table the total was incremented
     this.tableRowInsertionService.incrementTableTotal(this.convertedAmount);
-  }
-
-  getCurrencyAmount(): string {
-    return this.rates ? this.rates[this.select] : '';
   }
 
   ngOnInit() {
