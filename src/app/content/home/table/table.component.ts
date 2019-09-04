@@ -1,7 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ExchangeRateService } from '../../../services/exchange-rate.service';
 import { TableRow } from '../../../models/table-row.model';
-import { MatTableDataSource } from '@angular/material/table';
 import { TableRowInsertionService } from '../../../services/table-row-insertion.service';
 import { Subscription } from 'rxjs';
 
@@ -13,24 +11,40 @@ import { Subscription } from 'rxjs';
 export class TableComponent implements OnInit, OnDestroy {
   tableData: TableRow[] = [];
   displayedColumns: string[] = ['amount', 'amount-in-usd'];
-  tableTotal = 0;
+  tableTotal: number;
   tableRowsSubscription: Subscription;
+  tableTotalSubscription: Subscription;
+  displayTableTotal: string;
 
-  constructor(
-    private exchangeRateService: ExchangeRateService,
-    public tableRowInsertionService: TableRowInsertionService
-  ) {}
+  constructor(public tableRowInsertionService: TableRowInsertionService) {}
+
+  makeSpacesTableToal(tableTotal: number): string {
+    const parts = tableTotal.toString().split('.');
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    return parts.join('.');
+  }
 
   ngOnInit() {
-    this.tableData = this.tableRowInsertionService.getTableRows();
-    this.tableRowsSubscription = this.tableRowInsertionService.getTableUpdateListener()
+    this.tableRowsSubscription = this.tableRowInsertionService
+      .getTableUpdateListener()
       .subscribe((tableRows: TableRow[]) => {
         this.tableData = tableRows;
         console.log(this.tableData);
+      });
+
+    this.tableTotalSubscription = this.tableRowInsertionService
+      .getTableTotalUpdateListener()
+      .subscribe((tableTotal: number) => {
+        this.tableTotal = tableTotal;
+        this.displayTableTotal = this.makeSpacesTableToal(
+          Number(this.tableTotal.toFixed(2))
+        );
+        console.log(this.tableTotal);
       });
   }
 
   ngOnDestroy() {
     this.tableRowsSubscription.unsubscribe();
+    this.tableTotalSubscription.unsubscribe();
   }
 }

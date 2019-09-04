@@ -1,15 +1,13 @@
 import { TableRow } from '../models/table-row.model';
-import { Injectable, ɵConsole } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class TableRowInsertionService {
   tableRows: TableRow[] = [];
   tableRowsUpdated = new Subject<TableRow[]>();
-  // Spread operator used to not affect the original tableRows array (a copy is made)
-  getTableRows() {
-    return [...this.tableRows];
-  }
+  tableTotal = 0;
+  tableTotalUpdated = new Subject<number>();
 
   getTableUpdateListener() {
     return this.tableRowsUpdated.asObservable();
@@ -18,6 +16,14 @@ export class TableRowInsertionService {
   addTableRow(tableRow: TableRow) {
     this.tableRows.push(tableRow);
     this.tableRowsUpdated.next([...this.tableRows]);
-    console.log('Table: ', this.tableRows);
   }
+
+  getTableTotalUpdateListener() {
+    return this.tableTotalUpdated.asObservable();
+  }
+
+  incrementTableTotal(newAmount: number) {
+    this.tableTotalUpdated.next(this.tableTotal);
+  }
+
 }

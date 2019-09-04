@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ExchangeRateService } from '../../../services/exchange-rate.service';
 import { TableRow } from '../../../models/table-row.model';
 import { Rates } from '../../../models/rates.model';
@@ -37,6 +37,7 @@ export class FormComponent implements OnInit {
       const currencyInDollar = this.rates[this.select];
       const convertedAmount = this.amount / currencyInDollar;
       const editedConvertedAmount = +convertedAmount.toFixed(2);
+      this.convertedAmount = editedConvertedAmount;
       return '$ ' + this.makeSpacesInNumber(editedConvertedAmount);
     } else {
       return '...';
@@ -45,24 +46,26 @@ export class FormComponent implements OnInit {
 
   onInsertIntoTable() {
     let tableRow: TableRow;
+
+    this.tableRowInsertionService.tableTotal += this.convertedAmount;
+
+    const enteredAmountSelCode =
+      this.makeSpacesInNumber(this.amount) + ' ' + this.select;
+    const convertedAmountUSDCode = this.makeSpacesInNumber(this.convertedAmount) + ' USD';
+
     tableRow = {
-      amount: this.makeSpacesInNumber(this.amount) + ' ' + this.select,
-      amountInUsd: '80 USD'/* this.convertedAmount.toString() */
+      amount: enteredAmountSelCode,
+      amountInUsd: convertedAmountUSDCode
     };
     console.log(tableRow);
+    console.log(this.tableRowInsertionService.tableTotal);
     this.tableRowInsertionService.addTableRow(tableRow);
+    this.tableRowInsertionService.incrementTableTotal(this.convertedAmount);
   }
 
   getCurrencyAmount() {
     return this.rates ? this.rates[this.select] : '';
   }
-
-  // getCurrencyCode() {
-  //   if (this.rates) {
-  //     const codes = Object.keys(this.rates);
-  //     const code =
-  //   }
-  // }
 
   ngOnInit() {
     this.exchangeRateService.getRates().subscribe(
