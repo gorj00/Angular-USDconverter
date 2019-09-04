@@ -45,14 +45,12 @@ export class FormComponent implements OnInit {
 
   onInsertIntoTable() {
     let tableRow: TableRow;
-    if (this.convertedAmount) {
     tableRow = {
       amount: this.makeSpacesInNumber(this.amount) + ' ' + this.select,
-      amountInUsd: this.convertedAmount.toString()
+      amountInUsd: '80 USD'/* this.convertedAmount.toString() */
     };
     console.log(tableRow);
     this.tableRowInsertionService.addTableRow(tableRow);
-    }
   }
 
   getCurrencyAmount() {

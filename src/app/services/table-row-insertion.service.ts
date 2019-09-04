@@ -1,5 +1,5 @@
 import { TableRow } from '../models/table-row.model';
-import { Injectable } from '@angular/core';
+import { Injectable, ɵConsole } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
@@ -11,8 +11,13 @@ export class TableRowInsertionService {
     return [...this.tableRows];
   }
 
+  getTableUpdateListener() {
+    return this.tableRowsUpdated.asObservable();
+  }
+
   addTableRow(tableRow: TableRow) {
     this.tableRows.push(tableRow);
     this.tableRowsUpdated.next([...this.tableRows]);
+    console.log('Table: ', this.tableRows);
   }
 }
