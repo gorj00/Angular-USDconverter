@@ -5,20 +5,27 @@
       <!--- Note that these columns can be defined in any order.
       The actual rendered columns are set as a property on the row definition" -->
 
-      <!-- Position Column -->
+      <!-- Amount Column -->
       <ng-container matColumnDef="amount">
-        <th mat-header-cell *matHeaderCellDef> Amount </th>
-        <td mat-cell *matCellDef="let row"> {{row.amount}} </td>
+        <th mat-header-cell *matHeaderCellDef> Entered Amount </th>
+        <td mat-cell *matCellDef="let row"> {{ row.amount }} </td>
+        <td mat-footer-cell *matFooterCellDef>
+          <span class="mat-body-strong">Total:</span>
+        </td>
       </ng-container>
 
-      <!-- Name Column -->
+      <!-- USD Amount Column -->
       <ng-container matColumnDef="amount-in-usd">
-        <th mat-header-cell *matHeaderCellDef> Amount in USD </th>
-        <td mat-cell *matCellDef="let row"> {{row.amountInUsd}} </td>
+        <th mat-header-cell *matHeaderCellDef> Entered Amount Converted to USD </th>
+        <td mat-cell *matCellDef="let row"> {{ row.amountInUsd }} </td>
+        <td mat-footer-cell *matFooterCellDef>
+            <span class="mat-body-strong">600 USD</span>
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
     </table>
   </div>
 

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ExchangeRateService } from '../../../services/exchange-rate.service';
-import { RatesData } from '../../../models/rates-data.model';
+import { TableRow } from '../../../models/table-row.model';
 import { Rates } from '../../../models/rates.model';
 import { FormGroup } from '@angular/forms';
 
@@ -16,6 +16,7 @@ export class FormComponent implements OnInit {
   amount: number = null;
   select: string = null;
   convertedAmount: number;
+  @ViewChild('amountControl', { static: false }) amountControl: ElementRef;
 
   constructor(private exchangeRateService: ExchangeRateService) {}
 
@@ -40,14 +41,22 @@ export class FormComponent implements OnInit {
     }
   }
 
-  // showCurrency() {
-  //   return this.rates ? this.rates[this.select] : '';
-  // }
+  onInsertIntoTable() {
+    const tableRow: TableRow = {
+      amount: this.amount.toString() + 'this.getCurrency()',
+      amountInUsd: this.convertedAmount.toString() + ' USD'
+    };
+  }
+
+  getCurrency() {
+    return this.rates ? this.rates[this.select] : '';
+  }
 
   ngOnInit() {
     this.exchangeRateService.getRates().subscribe(
       rates => {
         this.rates = rates;
+        console.log(this.amountControl);
       },
       error => console.log(error),
       () => console.log('getRates() completed!')

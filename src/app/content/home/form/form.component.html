@@ -1,44 +1,50 @@
 <mat-card>
-  <form class="pad">
-    <h1 class="mat-display-2">Zentity App</h1>
-    <h2 class="mat-headline">
-      Exchange Rate Converter to US Dollars
-    </h2>
-    <mat-form-field>
-      <input
-        matInput
-        placeholder="Amount to convert"
-        type="number"
-        class="example-right-align"
-        name="amount"
-        [(ngModel)]="amount"
-        required>
-      <span matSuffix>.00</span>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Choose currency</mat-label>
-      <mat-select
-        [(ngModel)]="select"
-        name="select"
-        required>
-        <mat-option value="EUR">EUR</mat-option>
-        <mat-option value="CZK">CZK</mat-option>
-        <mat-option value="GBP">GBP</mat-option>
-      </mat-select>
-      <mat-error>Please, select the currency.</mat-error>
-    </mat-form-field>
-    <div class="dollar-conversion-field">
-      <label>
-        converted to <span class="mat-body-strong">USD</span> is <span class="converted-amount">{{ showConvertedAmount() }}</span>
-      </label>
-    </div>
-    <div class="submit-field">
-      <button
-        mat-raised-button
-        color="primary">
-          Insert amount into table
-      </button>
-    </div>
-
+  <form
+    class="pad" (submit)="onInsertIntoTable()"
+    #form="ngForm">
+      <h1 class="mat-display-2">USD Converter App</h1>
+      <h2 class="mat-headline">
+        Angular Framework App
+      </h2>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Amount to convert"
+          type="number"
+          class="example-right-align"
+          name="amount"
+          [(ngModel)]="amount"
+          required>
+        <mat-error>
+          Please, enter required amount to be converted to USD.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Choose currency</mat-label>
+        <mat-select
+          [(ngModel)]="select"
+          name="select"
+          required>
+          <mat-option value="EUR">EUR</mat-option>
+          <mat-option value="CZK">CZK</mat-option>
+          <mat-option value="GBP">GBP</mat-option>
+        </mat-select>
+        <mat-error>
+          Please, select the currency.
+        </mat-error>
+      </mat-form-field>
+      <div class="dollar-conversion-field">
+        <label>
+          converted to <span class="mat-body-strong">USD</span> is <span class="converted-amount">{{ showConvertedAmount() }}</span>
+        </label>
+      </div>
+      <div class="submit-field">
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="!form.valid">
+            Insert amount into table
+        </button>
+      </div>
 </form>
 </mat-card>
