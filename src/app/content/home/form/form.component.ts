@@ -70,7 +70,6 @@ export class FormComponent implements OnInit {
     this.exchangeRateService.getRates().subscribe(
       rates => {
         this.rates = rates;
-        console.log('Rate', this.convertedAmount);
       },
       error => console.log(error),
       () => console.log('getRates() completed!')
