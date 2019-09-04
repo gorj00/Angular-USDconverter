@@ -1,5 +1,5 @@
 
-  <div class="pad">
+  <div class="pad" *ngIf="tableData.length > 0">
     <table mat-table [dataSource]="tableData" class="mat-elevation-z8">
 
       <!-- Amount Column -->
