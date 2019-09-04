@@ -1,6 +1,6 @@
 import { TableRow } from '../models/table-row.model';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class TableRowInsertionService {
@@ -9,20 +9,20 @@ export class TableRowInsertionService {
   tableTotal = 0;
   tableTotalUpdated = new Subject<number>();
 
-  getTableUpdateListener() {
+  getTableUpdateListener(): Observable<TableRow[]> {
     return this.tableRowsUpdated.asObservable();
   }
 
-  addTableRow(tableRow: TableRow) {
+  addTableRow(tableRow: TableRow): void {
     this.tableRows.push(tableRow);
     this.tableRowsUpdated.next([...this.tableRows]);
   }
 
-  getTableTotalUpdateListener() {
+  getTableTotalUpdateListener(): Observable<number> {
     return this.tableTotalUpdated.asObservable();
   }
 
-  incrementTableTotal(newAmount: number) {
+  incrementTableTotal(newAmount: number): void {
     this.tableTotalUpdated.next(this.tableTotal);
   }
 

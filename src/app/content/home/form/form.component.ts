@@ -32,7 +32,7 @@ export class FormComponent implements OnInit {
     }
   }
 
-  showConvertedAmount() {
+  showConvertedAmount(): string {
     if (this.amount !== null && this.select !== null) {
       const currencyInDollar = this.rates[this.select];
       const convertedAmount = this.amount / currencyInDollar;
@@ -44,7 +44,7 @@ export class FormComponent implements OnInit {
     }
   }
 
-  onInsertIntoTable() {
+  onInsertIntoTable(): void {
     let tableRow: TableRow;
 
     this.tableRowInsertionService.tableTotal += this.convertedAmount;
@@ -57,19 +57,19 @@ export class FormComponent implements OnInit {
       amount: enteredAmountSelCode,
       amountInUsd: convertedAmountUSDCode
     };
-    console.log(tableRow);
-    console.log(this.tableRowInsertionService.tableTotal);
+    // console.log(tableRow);
+    // console.log(this.tableRowInsertionService.tableTotal);
     this.tableRowInsertionService.addTableRow(tableRow);
     this.tableRowInsertionService.incrementTableTotal(this.convertedAmount);
   }
 
-  getCurrencyAmount() {
+  getCurrencyAmount(): string {
     return this.rates ? this.rates[this.select] : '';
   }
 
   ngOnInit() {
     this.exchangeRateService.getRates().subscribe(
-      rates => {
+      (rates: Rates) => {
         this.rates = rates;
       },
       error => console.log(error),

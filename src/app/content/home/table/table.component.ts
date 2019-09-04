@@ -16,7 +16,9 @@ export class TableComponent implements OnInit, OnDestroy {
   tableTotalSubscription: Subscription;
   displayTableTotal: string;
 
-  constructor(public tableRowInsertionService: TableRowInsertionService) {}
+  constructor(
+    public tableRowInsertionService: TableRowInsertionService
+  ) {}
 
   makeSpacesTableToal(tableTotal: number): string {
     const parts = tableTotal.toString().split('.');
@@ -39,7 +41,6 @@ export class TableComponent implements OnInit, OnDestroy {
         this.displayTableTotal = this.makeSpacesTableToal(
           Number(this.tableTotal.toFixed(2))
         );
-        console.log(this.tableTotal);
       });
   }
 
