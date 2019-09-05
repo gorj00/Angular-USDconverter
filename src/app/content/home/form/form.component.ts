@@ -3,7 +3,6 @@ import { ExchangeRateService } from '../../../services/exchange-rate.service';
 import { TableRowInsertionService } from '../../../services/table-row-insertion.service';
 import { TableRow } from '../../../models/table-row.model';
 import { Rates } from '../../../models/rates.model';
-import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -11,7 +10,6 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-  form: FormGroup;
   rates: Rates;
   amount: number = null;
   select: string = null;
