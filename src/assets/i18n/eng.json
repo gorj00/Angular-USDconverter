@@ -37,6 +37,7 @@
       { "text": "HttpClient for an external REST API"}
     ],
     "updates-items": [
+      { "text": "Site link changed from routerLink to web link" },
       { "text": "When routing back to home, table prefills" }
     ]
   }

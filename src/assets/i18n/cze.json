@@ -37,6 +37,7 @@
       { "text": "HttpClient pro externí REST API"}
     ],
     "updates-items": [
+      { "text": "Site link změněn z routerLink na web link" },
       { "text": "Při přechodu zpátky na homepage, tabulka se naplní" }
     ]
   }
