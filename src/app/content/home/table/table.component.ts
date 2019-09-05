@@ -31,7 +31,7 @@ export class TableComponent implements OnInit, OnDestroy {
     this.tableData = this.tableRowInsertionService
       .getTableRows();
 
-    // If no amounts inserted, listen and wait for them
+    // Listen and wait for newly inserted amounts
     this.tableRowsSubscription = this.tableRowInsertionService
       .getTableUpdateListener()
       .subscribe((tableRows: TableRow[]) => {
@@ -45,7 +45,7 @@ export class TableComponent implements OnInit, OnDestroy {
       Number(this.tableTotal.toFixed(2))
       );
 
-    // If no amounts inserted, listen and wait for total
+    // Listen and wait for newly inserted amounts to update total
     this.tableTotalSubscription = this.tableRowInsertionService
       .getTableTotalUpdateListener()
       .subscribe((tableTotal: number) => {
