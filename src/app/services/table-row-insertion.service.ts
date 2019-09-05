@@ -18,12 +18,20 @@ export class TableRowInsertionService {
     this.tableRowsUpdated.next([...this.tableRows]);
   }
 
+  getTableRows(): TableRow[] {
+    return [...this.tableRows];
+  }
+
   getTableTotalUpdateListener(): Observable<number> {
     return this.tableTotalUpdated.asObservable();
   }
 
   incrementTableTotal(newAmount: number): void {
     this.tableTotalUpdated.next(this.tableTotal);
+  }
+
+  getTableTotal(): number {
+    return this.tableTotal;
   }
 
 }

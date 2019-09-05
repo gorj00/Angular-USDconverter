@@ -27,14 +27,25 @@ export class TableComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // Update table after submitting a new row
+    // If any amounts inserted, display them
+    this.tableData = this.tableRowInsertionService
+      .getTableRows();
+
+    // If no amounts inserted, listen and wait for them
     this.tableRowsSubscription = this.tableRowInsertionService
       .getTableUpdateListener()
       .subscribe((tableRows: TableRow[]) => {
         this.tableData = tableRows;
       });
 
-    // Update total amount after submitting a new row
+    // If any amounts inserted, display total
+    this.tableTotal = this.tableRowInsertionService
+      .getTableTotal();
+    this.displayTableTotal = this.makeSpacesTableToal(
+      Number(this.tableTotal.toFixed(2))
+      );
+
+    // If no amounts inserted, listen and wait for total
     this.tableTotalSubscription = this.tableRowInsertionService
       .getTableTotalUpdateListener()
       .subscribe((tableTotal: number) => {
