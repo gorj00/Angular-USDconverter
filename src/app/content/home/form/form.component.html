@@ -1,9 +1,7 @@
 <mat-card>
-
   <form class="pad" (ngSubmit)="onInsertIntoTable()" #form="ngForm">
 
     <h1 class="mat-display-2">{{ 'form.title' | translate }}</h1>
-
     <h2 class="mat-headline">
       {{ 'form.subtitle' | translate }}
     </h2>
@@ -32,7 +30,7 @@
         {{ 'form.select-error' | translate }}
       </mat-error>
     </mat-form-field>
-    
+
     <div class="dollar-conversion-field">
       <label>
         {{ 'form.hint' | translate }} <span class="mat-body-strong">USD</span> <span
@@ -46,5 +44,4 @@
     </div>
 
   </form>
-
 </mat-card>
