@@ -9,3 +9,7 @@ tr.mat-footer-row:nth-child(odd),
 tr.mat-row:nth-child(odd) {
   background: #fbfbfb;
 }
+
+mat-list-item {
+  width: 60%;
+}

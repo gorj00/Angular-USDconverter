@@ -23,6 +23,7 @@
     "title": "Information About the App",
     "title-tech": "Technologies Used",
     "title-tools": "Methods & Tools",
+    "title-updates": "Updates and Changes",
     "tech-items": [
       { "text": "Angular" },
       { "text": "Angular Material — styling and UI components" },
@@ -34,6 +35,9 @@
       { "text": "RxJS"},
       { "text": "Forms — Template driven approach"},
       { "text": "HttpClient for an external REST API"}
+    ],
+    "updates-items": [
+      { "text": "When routing back to home, table prefills" }
     ]
   }
 }
