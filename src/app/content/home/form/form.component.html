@@ -1,9 +1,13 @@
 <mat-card>
+
   <form class="pad" (ngSubmit)="onInsertIntoTable()" #form="ngForm">
+
     <h1 class="mat-display-2">{{ 'form.title' | translate }}</h1>
+
     <h2 class="mat-headline">
       {{ 'form.subtitle' | translate }}
     </h2>
+
     <mat-form-field>
       <input matInput
         [placeholder]="'form.input-number' | translate"
@@ -16,6 +20,7 @@
         {{ 'form.input-error' | translate }}
       </mat-error>
     </mat-form-field>
+
     <mat-form-field>
       <mat-label>{{ 'form.select-currency' | translate }}</mat-label>
       <mat-select [(ngModel)]="select" name="select" required>
@@ -27,6 +32,7 @@
         {{ 'form.select-error' | translate }}
       </mat-error>
     </mat-form-field>
+    
     <div class="dollar-conversion-field">
       <label>
         {{ 'form.hint' | translate }} <span class="mat-body-strong">USD</span> <span
@@ -38,5 +44,7 @@
         {{ 'form.submit' | translate }}
       </button>
     </div>
+
   </form>
+
 </mat-card>
