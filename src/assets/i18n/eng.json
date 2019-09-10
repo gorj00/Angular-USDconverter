@@ -38,7 +38,8 @@
     ],
     "updates-items": [
       { "text": "Site link changed from routerLink to web link" },
-      { "text": "When routing back to home, table prefills" }
+      { "text": "When routing back to home, table prefills" },
+      { "text": "Comparing to 'null' removed" }
     ]
   }
 }

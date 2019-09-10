@@ -38,7 +38,8 @@
     ],
     "updates-items": [
       { "text": "Site link změněn z routerLink na web link" },
-      { "text": "Při přechodu zpátky na homepage, tabulka se naplní" }
+      { "text": "Při přechodu zpátky na homepage, tabulka se naplní" },
+      { "text": "Přirovnání k 'null' vymazáno" }
     ]
   }
 }
