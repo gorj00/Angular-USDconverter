@@ -11,8 +11,8 @@ import { Rates } from '../../../models/rates.model';
 })
 export class FormComponent implements OnInit {
   rates: Rates;
-  amount: number = null;
-  select: string = null;
+  amount: number;
+  select: string;
   convertedAmount: number;
 
   constructor(
@@ -22,17 +22,15 @@ export class FormComponent implements OnInit {
 
   // Makes 3 215 211 from 3215211
   makeSpacesInNumber(num: number): string {
-    if (this.amount !== null) {
+    if (this.amount) {
       const parts = num.toString().split('.');
       parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
       return parts.join('.');
-    } else {
-      return null;
     }
   }
 
   showConvertedAmount(): string {
-    if (this.amount !== null && this.select !== null) {
+    if (this.amount && this.select) {
       const currencyPerDollar: number = this.rates[this.select];
       const convertedAmount: number = this.amount / currencyPerDollar;
       const editedConvertedAmount: number = +convertedAmount.toFixed(2);
