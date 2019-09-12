@@ -27,7 +27,7 @@
     "tech-items": [
       { "text": "Angular" },
       { "text": "Angular Material — stylování a UI komponenty" },
-      { "text": "Exchange rates API — měnové kurzy z" },
+      { "text": "Exchange rates API — měnové kurzy z exchangeratesapi.io" },
       { "text": "ngx-translate — přepínání mezi angličtinou a češtinou" }
     ],
     "tools-items": [

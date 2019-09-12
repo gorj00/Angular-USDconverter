@@ -6,62 +6,26 @@
 
     <section class="info-section">
       <h2 class="mat-headline">
-          {{ 'information.title-tech' | translate }}:
+        {{ 'information.title-tech' | translate }}:
       </h2>
-      <mat-list role="list">
+      <mat-list role="list" *ngFor="let tech of 'information.tech-items' | translate">
         <mat-list-item role="listitem">
-            {{ 'information.tech-items.0.text' | translate }}
-        </mat-list-item>
-        <mat-list-item role="listitem">
-            {{ 'information.tech-items.1.text' | translate }}
-        </mat-list-item>
-        <mat-list-item role="listitem">
-            {{ 'information.tech-items.2.text' | translate }}
-            <a href="https://exchangeratesapi.io/" class="mat-body-strong"
-            target="_blank"> exchangeratesapi.io </a>
-        </mat-list-item>
-        <mat-list-item role="listitem">
-            {{ 'information.tech-items.3.text' | translate }}
+          {{ tech.text }}
         </mat-list-item>
       </mat-list>
     </section>
+
 
     <section class="info-section">
       <h2 class="mat-headline">
-          {{ 'information.title-tools' | translate }}:
+        {{ 'information.title-updates' | translate }}:
       </h2>
-      <mat-list role="list">
+      <mat-list role="list" *ngFor="let update of 'information.updates-items' | translate">
         <mat-list-item role="listitem">
-            {{ 'information.tools-items.0.text' | translate }}
-        </mat-list-item>
-        <mat-list-item role="listitem">
-            {{ 'information.tools-items.1.text' | translate }}
-        </mat-list-item>
-        <mat-list-item role="listitem">
-            {{ 'information.tools-items.2.text' | translate }}
-        </mat-list-item>
-        <mat-list-item role="listitem">
-            {{ 'information.tools-items.3.text' | translate }}
+          {{ update.text }}
         </mat-list-item>
       </mat-list>
     </section>
-
-    <section class="info-section">
-        <h2 class="mat-headline">
-            {{ 'information.title-updates' | translate }}:
-        </h2>
-        <mat-list role="list">
-          <mat-list-item role="listitem">
-              {{ 'information.updates-items.0.text' | translate }}
-          </mat-list-item>
-          <mat-list-item role="listitem">
-              {{ 'information.updates-items.1.text' | translate }}
-          </mat-list-item>
-          <mat-list-item role="listitem">
-            {{ 'information.updates-items.2.text' | translate }}
-        </mat-list-item>
-        </mat-list>
-      </section>
 
   </div>
 </mat-card>
