@@ -21,25 +21,58 @@
   },
   "information": {
     "title": "Information About the App",
-    "title-tech": "Technologies Used",
-    "title-tools": "Methods & Tools",
-    "title-updates": "Updates and Changes",
-    "tech-items": [
-      { "text": "Angular" },
-      { "text": "Angular Material — styling and UI components" },
-      { "text": "Exchange rates API — exchange rates from exchangeratesapi.io" },
-      { "text": "ngx-translate — switching between English and Czech" }
-    ],
-    "tools-items": [
-      { "text": "Dependency injection"},
-      { "text": "RxJS"},
-      { "text": "Forms — Template driven approach"},
-      { "text": "HttpClient for an external REST API"}
-    ],
-    "updates-items": [
-      { "text": "Site link changed from routerLink to web link" },
-      { "text": "When routing back to home, table prefills" },
-      { "text": "Comparing to 'null' removed" }
+    "iterate-info": [
+      {
+        "title": "Technologies Used",
+        "items": [
+          {
+            "item": "Angular"
+          },
+          {
+            "item": "Angular Material — styling and UI components"
+          },
+          {
+            "item": "Exchange rates API — exchange rates from exchangeratesapi.io"
+          },
+          {
+            "item": "ngx-translate — switching between English and Czech"
+          }
+        ]
+      },
+      {
+        "title": "Methods & Tools",
+        "items": [
+          {
+            "item": "Dependency injection"
+          },
+          {
+            "item": "RxJS"
+          },
+          {
+            "item": "Forms — Template driven approach"
+          },
+          {
+            "item": "HttpClient for an external REST API"
+          }
+        ]
+      },
+      {
+        "title": "Updates and Changes",
+        "items": [
+          {
+            "item": "Site link changed from routerLink to web link"
+          },
+          {
+            "item": "When routing back to home, table prefills"
+          },
+          {
+            "item": "Comparing to 'null' removed"
+          },
+          {
+            "item": "Repeated content for translation rendered dynamically with *ngFor"
+          }
+        ]
+      }
     ]
   }
 }

@@ -21,25 +21,58 @@
   },
   "information": {
     "title": "Informace o aplikaci",
-    "title-tech": "Užité technologie",
-    "title-tools": "Přístupy a nástroje",
-    "title-updates": "Updaty a změny",
-    "tech-items": [
-      { "text": "Angular" },
-      { "text": "Angular Material — stylování a UI komponenty" },
-      { "text": "Exchange rates API — měnové kurzy z exchangeratesapi.io" },
-      { "text": "ngx-translate — přepínání mezi angličtinou a češtinou" }
-    ],
-    "tools-items": [
-      { "text": "Dependency injection"},
-      { "text": "RxJS"},
-      { "text": "Formuláře — Template driven přístup"},
-      { "text": "HttpClient pro externí REST API"}
-    ],
-    "updates-items": [
-      { "text": "Site link změněn z routerLink na web link" },
-      { "text": "Při přechodu zpátky na homepage, tabulka se naplní" },
-      { "text": "Přirovnání k 'null' vymazáno" }
+    "iterate-info": [
+      {
+        "title": "Užité technologie",
+        "items": [
+          {
+            "item": "Angular"
+          },
+          {
+            "item": "Angular Material — stylování a UI komponenty"
+          },
+          {
+            "item": "Exchange rates API — měnové kurzy z exchangeratesapi.io"
+          },
+          {
+            "item": "ngx-translate — přepínání mezi angličtinou a češtinou"
+          }
+        ]
+      },
+      {
+        "title": "Přístupy a nástroje",
+        "items": [
+          {
+            "item": "Dependency injection"
+          },
+          {
+            "item": "RxJS"
+          },
+          {
+            "item": "Formuláře — Template driven přístup"
+          },
+          {
+            "item": "HttpClient pro externí REST API"
+          }
+        ]
+      },
+      {
+        "title": "Updaty a změny",
+        "items": [
+          {
+            "item": "Site link změněn z routerLink na web link"
+          },
+          {
+            "item": "Při přechodu zpátky na homepage, tabulka se naplní"
+          },
+          {
+            "item": "Přirovnání k 'null' vymazáno"
+          },
+          {
+            "item": "Opkaovaný překládaný obsah renderovaný dynamicky s *ngFor"
+          }
+        ]
+      }
     ]
   }
 }

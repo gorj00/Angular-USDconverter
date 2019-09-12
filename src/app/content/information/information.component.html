@@ -4,27 +4,19 @@
       {{ 'information.title' | translate }}
     </h1>
 
-    <section class="info-section">
+    <section class="info-section"
+      *ngFor="let section of 'information.iterate-info' | translate; index as i">
+
       <h2 class="mat-headline">
-        {{ 'information.title-tech' | translate }}:
+        {{ section.title }}:
       </h2>
-      <mat-list role="list" *ngFor="let tech of 'information.tech-items' | translate">
+
+      <mat-list role="list" *ngFor="let content of section.items">
         <mat-list-item role="listitem">
-          {{ tech.text }}
+          {{ content.item }}
         </mat-list-item>
       </mat-list>
-    </section>
 
-
-    <section class="info-section">
-      <h2 class="mat-headline">
-        {{ 'information.title-updates' | translate }}:
-      </h2>
-      <mat-list role="list" *ngFor="let update of 'information.updates-items' | translate">
-        <mat-list-item role="listitem">
-          {{ update.text }}
-        </mat-list-item>
-      </mat-list>
     </section>
 
   </div>
