@@ -12,8 +12,8 @@ export class ExchangeRateService {
     value: number;
   }[] = [];
 
-  baseURL = 'https://api.exchangeratesapi.io/';
-  baseCurrency = 'latest?base=USD';
+  baseURL = 'https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/';
+  baseCurrency = 'usd.json';
 
   exchangeRatesURL: string = this.baseURL + this.baseCurrency;
 
@@ -21,10 +21,6 @@ export class ExchangeRateService {
 
   getRates(): Observable<Rates> {
     return this.http.get<RatesData>(this.exchangeRatesURL)
-      .pipe(
-        map(ratesData => {
-          return ratesData.rates;
-        })
-      );
+      .pipe(map(ratesData => ratesData.usd));
   }
 }

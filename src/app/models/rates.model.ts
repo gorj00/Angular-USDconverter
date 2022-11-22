@@ -1,6 +1,6 @@
 export interface Rates {
-  'CZK': number;
-  'EUR': number;
-  'GBP': number;
-  'USD': number;
+  'czk': number;
+  'eur': number;
+  'gbp': number;
+  'usd': number;
 }

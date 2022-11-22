@@ -1,7 +1,6 @@
 import { Rates } from './rates.model';
 
 export interface RatesData {
-  rates: Rates;
-  base: string;
+  usd: Rates;
   date: string;
 }
